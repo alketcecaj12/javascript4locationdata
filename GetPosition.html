@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Get the Location</title>
+
+<script type="text/javascript">
+
+function getLocation()
+
+{
+
+if (navigator.geolocation)
+
+{
+
+navigator.geolocation.getCurrentPosition(successfulPosition);
+
+}
+
+else
+
+document.getElementById("result").innerHTML = "Your browser does not support HTML5 Geolocation";
+
+}
+
+function successfulPosition(location)
+
+{
+
+var lat = location.coords.latitude;
+
+var long = location.coords.longitude;
+
+document.getElementById("result").innerHTML = "Latitude: " + lat +
+
+"<br />Longitude: " + long;
+
+/*document.getElementById("result").innerHTML = "Altitude: " + location.coords.altitude;
+
+document.getElementById("result").innerHTML = "Accuracy: " + location.coords.accuracy;
+
+document.getElementById("result").innerHTML = "Altitude Accuracy: " + location.coords.altitudeAccuracy;
+
+document.getElementById("result").innerHTML = "Direction: " + location.coords.heading;
+
+document.getElementById("result").innerHTML = "Speed: " + location.coords.speed;
+
+document.getElementById("result").innerHTML = "Time: " + location.timestamp;
+*/
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="result"></div>
+
+<button id="getPosition" onclick="getLocation();">Get Position</button>
+
+</body>
+
+</html>
